@@ -1,0 +1,42 @@
+.introInner {
+  padding: 45px 6vw 45px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.introInner h2 {
+  margin-bottom: 10px;
+}
+
+.introInner p {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.chips span {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.62);
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+@media (max-width: 900px) {
+  .introInner {
+    padding: 44px 22px;
+  }
+}
