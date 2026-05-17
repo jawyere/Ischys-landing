@@ -1,0 +1,146 @@
+.header {
+  position: fixed;
+  top: 12px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.pillNav {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.82);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 14px 42px rgba(40, 79, 57, 0.12);
+}
+
+.navBrand,
+.navButton,
+.navLinks a {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.navBrand {
+  gap: 7px;
+  padding: 0 13px;
+  color: var(--cream);
+  background: var(--green);
+  font-weight: 800;
+}
+
+.brandDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--green-light);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.navLinks a {
+  padding: 0 11px;
+  color: var(--green);
+}
+
+.navLinks a:hover {
+  background: rgba(40, 79, 57, 0.08);
+}
+
+.navButton {
+  padding: 0 13px;
+  background: var(--green);
+  color: var(--cream);
+  font-weight: 700;
+}
+
+.menuButton {
+  display: none;
+  width: 36px;
+  height: 32px;
+  border: none;
+  border-radius: 999px;
+  background: var(--green);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menuButton span {
+  width: 15px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--cream);
+}
+
+.mobileMenu {
+  pointer-events: auto;
+  width: calc(100% - 28px);
+  max-width: 380px;
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: rgba(255, 250, 240, 0.96);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 50px rgba(40, 79, 57, 0.14);
+}
+
+.mobileMenu a {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 14px;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.mobileMenu a:hover {
+  background: rgba(40, 79, 57, 0.08);
+}
+
+.mobileMenu .mobileMenuCta {
+  margin-top: 6px;
+  justify-content: center;
+  background: var(--green);
+  color: var(--cream);
+}
+
+@media (max-width: 900px) {
+  .pillNav {
+    width: calc(100% - 28px);
+    justify-content: space-between;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .navButton {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+}
