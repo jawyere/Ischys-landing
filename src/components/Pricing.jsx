@@ -37,7 +37,7 @@ function Pricing() {
             </ul>
 
             <a
-              href="https://buy.stripe.com/YOUR-STRIPE-LINK-HERE"
+              href="https://buy.stripe.com/test_bJe3cw5vmc9jeEEc28eUU00"
               target="_blank"
               rel="noreferrer"
               className="primaryBtn wide"
