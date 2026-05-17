@@ -53,7 +53,7 @@ function Pricing() {
 
             <p className="tierLabel">Core Founder</p>
 
-            <p className="price">$200</p>
+            <p className="price">$400</p>
 
             <h3>Support the first build</h3>
 
