@@ -11,20 +11,52 @@
 .sectionHeading h2 {
   margin-bottom: 0;
 }
-
 .steps {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid rgba(156, 255, 184, 0.14);
+  border: 1px solid rgba(156, 255, 184, 0.15);
   border-radius: 28px;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.035));
-  backdrop-filter: blur(16px);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.035)),
+    rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(156, 255, 184, 0.14), transparent 34%),
+    linear-gradient(135deg, rgba(156, 255, 184, 0.08), transparent 42%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.steps:hover {
+  transform: translateY(-3px);
+  border-color: rgba(156, 255, 184, 0.34);
+  box-shadow:
+    0 30px 86px rgba(0, 0, 0, 0.26),
+    0 0 44px rgba(156, 255, 184, 0.12);
+}
+
+.steps:hover::before {
+  opacity: 1;
 }
 
 .step {
+  position: relative;
+  z-index: 1;
   min-height: 214px;
   padding: 26px 24px;
   transition:
@@ -33,7 +65,12 @@
 }
 
 .step:hover {
-  background: rgba(156, 255, 184, 0.04);
+  background: rgba(156, 255, 184, 0.045);
+}
+
+.step:hover .stepNumber {
+  color: #baffca;
+  text-shadow: 0 0 18px rgba(156, 255, 184, 0.22);
 }
 
 .step + .step {

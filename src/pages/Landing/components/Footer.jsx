@@ -16,7 +16,7 @@ function Footer() {
 
         <div className="socialLinks">
           <a
-            href={INSTAGRAM_URL}
+            href={"https://www.instagram.com/ischys_fitness/"}
             target="_blank"
             rel="noreferrer"
             aria-label="Visit Ischys on Instagram"
@@ -26,7 +26,7 @@ function Footer() {
           </a>
 
           <a
-            href={TIKTOK_URL}
+            href={"https://www.tiktok.com/@ischys_fitness"}
             target="_blank"
             rel="noreferrer"
             aria-label="Visit Ischys on TikTok"

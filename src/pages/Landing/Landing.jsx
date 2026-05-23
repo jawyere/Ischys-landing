@@ -16,9 +16,9 @@ function Landing() {
       <Hero />
       <Intro />
       <HowItWorks />
-      <Pricing />
       <AppSection />
       <Waitlist />
+      <Pricing />
       <Footer />
     </main>
   );

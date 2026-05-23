@@ -14,6 +14,7 @@
   padding: clamp(24px, 4vw, 52px) clamp(16px, 3vw, 38px);
 }
 
+
 .heroProduct::before {
   content: "";
   position: absolute;
@@ -32,10 +33,24 @@
   transform: translate(-50%, -50%);
   filter: blur(10px);
   z-index: 0;
+  transition:
+    opacity 220ms ease,
+    filter 220ms ease,
+    transform 220ms ease;
 }
+
+.heroProduct:hover::before {
+  opacity: 1;
+  filter: blur(14px);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
 
 /* graph card */
 .graphCard {
+  --graph-x: clamp(8px, 1.4vw, 22px);
+  --graph-y: clamp(34px, 5vw, 58px);
+
   position: relative;
   z-index: 3;
   width: clamp(220px, 23vw, 282px);
@@ -49,10 +64,21 @@
     0 28px 70px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   justify-self: end;
-  transform: translate(
-    clamp(8px, 1.4vw, 22px),
-    clamp(34px, 5vw, 58px)
-  );
+  transform: translate(var(--graph-x), var(--graph-y));
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.heroProduct:hover .graphCard {
+  transform: translate(var(--graph-x), calc(var(--graph-y) - 8px)) scale(1.015);
+  border-color: rgba(156, 255, 184, 0.28);
+  box-shadow:
+    0 34px 86px rgba(0, 0, 0, 0.36),
+    0 0 34px rgba(156, 255, 184, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .graphHeader {
@@ -135,10 +161,22 @@
 
 /* bottle */
 .bottleWrap {
+  --bottle-scale: clamp(0.78, 0.72 + 0.18vw, 0.96);
+  --bottle-hover-scale: clamp(0.8, 0.74 + 0.18vw, 0.985);
+
   position: relative;
   z-index: 2;
   justify-self: start;
-  transform: scale(clamp(0.78, 0.72 + 0.18vw, 0.96));
+  transform: translateY(0) rotate(0deg) scale(var(--bottle-scale));
+  transform-origin: center bottom;
+  transition:
+    transform 220ms ease,
+    filter 220ms ease;
+}
+
+.heroProduct:hover .bottleWrap {
+  transform: translateY(-6px) rotate(-1deg) scale(var(--bottle-hover-scale));
+  filter: drop-shadow(0 24px 34px rgba(156, 255, 184, 0.12));
 }
 
 .bottleCap {
@@ -291,14 +329,18 @@
   }
 
   .graphCard {
-    width: clamp(205px, 48vw, 250px);
-    justify-self: end;
-    transform: translate(18px, 34px);
+  --graph-x: 18px;
+  --graph-y: 34px;
+
+  width: clamp(205px, 48vw, 250px);
+  justify-self: end;
   }
 
   .bottleWrap {
-    justify-self: start;
-    transform: scale(0.72);
+  --bottle-scale: 0.72;
+  --bottle-hover-scale: 0.74;
+
+  justify-self: start;
   }
 
   .graphSubtext {
@@ -347,11 +389,16 @@
   }
 
   .graphCard {
-    width: 190px;
-    transform: translate(18px, 34px);
+  --graph-x: 24px;
+  --graph-y: 34px;
+
+  width: clamp(190px, 62vw, 220px);
+  padding: 14px;
+  border-radius: 24px;
   }
 
   .bottleWrap {
-    transform: scale(0.56);
+  --bottle-scale: 0.62;
+  --bottle-hover-scale: 0.635;
   }
 }

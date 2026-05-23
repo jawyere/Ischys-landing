@@ -18,7 +18,6 @@
   font-size: 42px;
 }
 
-
 .appGrid p {
   color: var(--muted);
   font-size: 18px;
@@ -26,23 +25,63 @@
 }
 
 .featurePanel {
-  border: 1px solid var(--border);
+  position: relative;
+  border: 1px solid rgba(156, 255, 184, 0.15);
   border-radius: 30px;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.038));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.035)),
+    rgba(255, 255, 255, 0.035);
   backdrop-filter: blur(18px);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.featurePanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 16%, rgba(156, 255, 184, 0.14), transparent 34%),
+    linear-gradient(135deg, rgba(156, 255, 184, 0.08), transparent 42%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.featurePanel:hover {
+  transform: translateY(-3px);
+  border-color: rgba(156, 255, 184, 0.34);
+  box-shadow:
+    0 30px 86px rgba(0, 0, 0, 0.26),
+    0 0 44px rgba(156, 255, 184, 0.12);
+}
+
+.featurePanel:hover::before {
+  opacity: 1;
 }
 
 .featureRow {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 6px;
   padding: 24px;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.featureRow:hover {
+  background: rgba(156, 255, 184, 0.045);
 }
 
 .featureRow + .featureRow {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(156, 255, 184, 0.12);
 }
 
 .featureRow strong {
@@ -59,5 +98,10 @@
   .appGrid {
     grid-template-columns: 1fr;
     padding: 60px 24px;
+  }
+
+  .appTitleLine {
+    white-space: normal;
+    font-size: clamp(2.2rem, 9vw, 3rem);
   }
 }
