@@ -8,7 +8,7 @@ function ProductVisual() {
         <div className="graphHeader">
           <div>
             <p className="graphEyebrow">Today&apos;s intake</p>
-            <h4 className="graphMetric">54 oz</h4>
+            <h4 className="graphMetric">63 oz</h4>
           </div>
 
           <div className="graphBadge">+12%</div>

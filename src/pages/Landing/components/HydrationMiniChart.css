@@ -1,57 +1,108 @@
 .miniChartCard {
   position: relative;
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .miniChartTopRow {
+  display: grid;
+  gap: 0.55rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.miniChartStatusRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 0.65rem;
+  min-width: 0;
 }
 
 .miniChartLabel {
-  color: rgba(245, 255, 248, 0.45);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.miniChartMeta {
-  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-height: 30px;
-  padding: 6px 9px;
-  border: 1px solid rgba(156, 255, 184, 0.2);
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.34rem 0.58rem;
+  border: 1px solid rgba(156, 255, 184, 0.18);
   border-radius: 999px;
-  background: rgba(7, 17, 13, 0.72);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(12px);
-  pointer-events: none;
+  background: rgba(156, 255, 184, 0.065);
+  color: rgba(245, 255, 248, 0.56);
+  font-size: 0.55rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.miniChartMeta span {
-  color: rgba(245, 255, 248, 0.56);
-  font-size: 10px;
-  font-weight: 800;
+.miniChartTime {
+  flex: 0 0 auto;
+  min-width: 3.5rem;
+  text-align: right;
+  color: rgba(245, 255, 248, 0.78);
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.miniChartValues {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.miniChartValue {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+  min-height: 2.45rem;
+  padding: 0.48rem 0.5rem;
+  border: 1px solid rgba(156, 255, 184, 0.16);
+  border-radius: 15px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.032)),
+    rgba(7, 17, 13, 0.52);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.miniChartValue small {
+  color: rgba(245, 255, 248, 0.44);
+  font-size: 0.52rem;
+  font-weight: 850;
+  line-height: 1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.miniChartMeta strong {
+.miniChartValue strong {
+  display: block;
+  width: 4.1ch;
   color: var(--green);
-  font-size: 15px;
+  font-size: 0.76rem;
+  font-weight: 900;
   line-height: 1;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .hydrationChart {
   width: 100%;
   height: auto;
   display: block;
+  overflow: visible;
 }
 
 .gridLine {
@@ -63,7 +114,9 @@
   stroke: rgba(156, 255, 184, 0.28);
   stroke-width: 1;
   stroke-dasharray: 4 6;
-  transition: x1 180ms ease, x2 180ms ease;
+  transition:
+    x1 180ms ease,
+    x2 180ms ease;
 }
 
 .chartPoint {
@@ -89,22 +142,49 @@
   outline: none;
 }
 
+.chartHitArea:focus-visible {
+  outline: none;
+}
+
 .chartLabels {
-  margin-top: 8px;
   display: flex;
   justify-content: space-between;
-  color: rgba(245, 255, 248, 0.48);
-  font-size: 11px;
+  gap: 0.35rem;
+  color: rgba(245, 255, 248, 0.46);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  min-width: 0;
+}
+
+.chartLabels span {
+  white-space: nowrap;
 }
 
 @media (max-width: 560px) {
-  .miniChartTopRow {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
+  .miniChartLabel {
+    font-size: 0.5rem;
+    padding: 0.3rem 0.5rem;
   }
 
-  .miniChartMeta {
-    min-height: 28px;
+  .miniChartTime {
+    font-size: 0.72rem;
+    min-width: 3.25rem;
+  }
+
+  .miniChartValues {
+    gap: 0.38rem;
+  }
+
+  .miniChartValue {
+    padding: 0.44rem 0.46rem;
+  }
+
+  .miniChartValue strong {
+    font-size: 0.72rem;
+  }
+
+  .chartLabels {
+    font-size: 0.56rem;
   }
 }

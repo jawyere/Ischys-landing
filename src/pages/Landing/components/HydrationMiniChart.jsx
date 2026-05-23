@@ -2,12 +2,12 @@ import { useMemo, useState } from "react";
 import "./HydrationMiniChart.css";
 
 const hydrationData = [
-  { time: "8 AM", oz: 8, x: 22, y: 122 },
-  { time: "10 AM", oz: 22, x: 68, y: 46 },
-  { time: "12 PM", oz: 31, x: 114, y: 92 },
-  { time: "2 PM", oz: 41, x: 160, y: 58 },
-  { time: "4 PM", oz: 46, x: 208, y: 70 },
-  { time: "8 PM", oz: 54, x: 238, y: 28 },
+  { time: "8 AM", oz: 6, cur: 6, x: 22, y: 100 },
+  { time: "10 AM", oz: 19, cur: 13, x: 68, y: 60 },
+  { time: "12 PM", oz: 27, cur: 8, x: 114, y: 90 },
+  { time: "2 PM", oz: 37, cur: 10, x: 160, y: 67 },
+  { time: "4 PM", oz: 46, cur: 9, x: 208, y: 70 },
+  { time: "8 PM", oz: 63, cur: 17, x: 238, y: 28 },
 ];
 
 function HydrationMiniChart() {
@@ -27,11 +27,21 @@ function HydrationMiniChart() {
   return (
     <div className="miniChartCard">
       <div className="miniChartTopRow">
-        <span className="miniChartLabel">Forecast point</span>
+        <div className="miniChartStatusRow">
+          <span className="miniChartLabel">Selected point</span>
+          <span className="miniChartTime">{activePoint.time}</span>
+        </div>
 
-        <div className="miniChartMeta" aria-live="polite">
-          <span>{activePoint.time}</span>
-          <strong>{activePoint.oz} oz</strong>
+        <div className="miniChartValues" aria-live="polite">
+          <div className="miniChartValue">
+            <small>Hour</small>
+            <strong>{activePoint.cur} oz</strong>
+          </div>
+
+          <div className="miniChartValue">
+            <small>Total</small>
+            <strong>{activePoint.oz} oz</strong>
+          </div>
         </div>
       </div>
 
@@ -94,7 +104,7 @@ function HydrationMiniChart() {
               onMouseEnter={() => setActiveIndex(index)}
               onFocus={() => setActiveIndex(index)}
               tabIndex="0"
-              aria-label={`${point.time}: ${point.oz} ounces`}
+              aria-label={`${point.time}: current hour ${point.cur} ounces, total ${point.oz} ounces`}
             />
           </g>
         ))}
@@ -102,7 +112,9 @@ function HydrationMiniChart() {
 
       <div className="chartLabels">
         <span>8 AM</span>
+        <span>10 AM</span>
         <span>12 PM</span>
+        <span>2 PM</span>
         <span>4 PM</span>
         <span>8 PM</span>
       </div>
