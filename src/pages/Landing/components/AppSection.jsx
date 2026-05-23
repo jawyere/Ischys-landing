@@ -1,3 +1,4 @@
+import MagneticSurface from "../../../components/MagneticSurface/MagneticSurface";
 import "./AppSection.css";
 
 function AppSection() {
@@ -7,9 +8,6 @@ function AppSection() {
 
       <div className="appGrid">
         <div>
-
-         
-
           <p className="eyebrow">The app</p>
 
           <h1 className="appTitle">
@@ -23,7 +21,7 @@ function AppSection() {
           </p>
         </div>
 
-        <div className="featurePanel">
+        <MagneticSurface className="featurePanel" strength={4.2}>
           <div className="featureRow">
             <strong>Free app</strong>
             <span>Daily intake, goals, reminders, progress</span>
@@ -38,7 +36,7 @@ function AppSection() {
             <strong>Hardware</strong>
             <span>Sleek base, rechargeable, bottle-friendly design</span>
           </div>
-        </div>
+        </MagneticSurface>
       </div>
 
       <div className="sideLine"></div>

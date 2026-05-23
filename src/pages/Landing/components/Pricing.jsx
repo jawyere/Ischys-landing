@@ -1,5 +1,55 @@
+import { useRef } from "react";
 import "./Pricing.css";
 import Button from "../../../components/Button/Button";
+
+function MagneticPriceCard({ children, className = "" }) {
+  const cardRef = useRef(null);
+
+  function handleMouseMove(event) {
+    const card = cardRef.current;
+
+    if (!card) {
+      return;
+    }
+
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((centerY - y) / centerY) * 5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+
+    card.style.setProperty("--pointer-x", `${x}px`);
+    card.style.setProperty("--pointer-y", `${y}px`);
+    card.style.setProperty("--tilt-x", `${rotateY}deg`);
+    card.style.setProperty("--tilt-y", `${rotateX}deg`);
+  }
+
+  function handleMouseLeave() {
+    const card = cardRef.current;
+
+    if (!card) {
+      return;
+    }
+
+    card.style.setProperty("--pointer-x", "50%");
+    card.style.setProperty("--pointer-y", "50%");
+    card.style.setProperty("--tilt-x", "0deg");
+    card.style.setProperty("--tilt-y", "0deg");
+  }
+
+  return (
+    <article
+      ref={cardRef}
+      className={`priceCard ${className}`.trim()}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {children}
+    </article>
+  );
+}
 
 function Pricing() {
   return (
@@ -18,7 +68,7 @@ function Pricing() {
         </p>
 
         <div className="pricingCards">
-          <div className="priceCard">
+          <MagneticPriceCard>
             <p className="tierLabel">Founder Access</p>
 
             <p className="price">$10</p>
@@ -48,9 +98,9 @@ function Pricing() {
             </Button>
 
             <small>Best for early users who want first access.</small>
-          </div>
+          </MagneticPriceCard>
 
-          <div className="priceCard featuredPriceCard supportCard">
+          <MagneticPriceCard className="featuredPriceCard supportCard">
             <div className="limitedBadge">Optional support tier</div>
 
             <p className="tierLabel">Founding Patron</p>
@@ -86,7 +136,7 @@ function Pricing() {
               Optional patron support for people who want to help bring Ischys
               to life.
             </small>
-          </div>
+          </MagneticPriceCard>
         </div>
 
         <p className="pricingNote">

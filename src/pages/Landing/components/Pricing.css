@@ -18,27 +18,91 @@
   gap: 22px;
   max-width: 940px;
   margin: 36px auto 0;
+  perspective: 1100px;
 }
 
 .priceCard {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --card-scale: 1;
+  --hover-card-scale: 1.028;
+  --card-lift: 0px;
+
   position: relative;
+  overflow: hidden;
   padding: 34px;
   border: 1px solid rgba(156, 255, 184, 0.16);
   border-radius: 34px;
-  background: rgba(255, 255, 255, 0.065);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.068), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(18px);
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.22);
   text-align: left;
+  transform:
+    perspective(900px)
+    translateY(var(--card-lift))
+    rotateX(var(--tilt-y))
+    rotateY(var(--tilt-x))
+    scale(var(--card-scale));
+  transform-style: preserve-3d;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
-    background 180ms ease;
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.priceCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at var(--pointer-x) var(--pointer-y),
+      rgba(156, 255, 184, 0.18),
+      transparent 34%
+    );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.priceCard::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 33px;
+  background:
+    linear-gradient(135deg, rgba(156, 255, 184, 0.08), transparent 48%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.priceCard > * {
+  position: relative;
+  z-index: 1;
 }
 
 .priceCard:hover {
-  transform: translateY(-4px);
+  --card-lift: -9px;
+  --card-scale: var(--hover-card-scale);
+
   border-color: rgba(156, 255, 184, 0.34);
-  background: rgba(255, 255, 255, 0.085);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.088), rgba(255, 255, 255, 0.048)),
+    rgba(255, 255, 255, 0.048);
+  box-shadow:
+    0 38px 104px rgba(0, 0, 0, 0.32),
+    0 0 48px rgba(156, 255, 184, 0.12);
+}
+
+.priceCard:hover::before,
+.priceCard:hover::after {
+  opacity: 1;
 }
 
 .featuredPriceCard {
@@ -141,10 +205,11 @@
 }
 
 .supportCard {
-  transform: scale(0.94);
+  --card-scale: 0.94;
+  --hover-card-scale: 0.976;
+
   align-self: center;
 }
-
 
 @media (max-width: 900px) {
   .pricingInner {
@@ -171,6 +236,19 @@
   }
 
   .supportCard {
-    transform: none;
+    --card-scale: 1;
+    --hover-card-scale: 1.028;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .priceCard,
+  .priceCard::before,
+  .priceCard::after {
+    transition: none;
+  }
+
+  .priceCard {
+    transform: scale(var(--card-scale));
   }
 }

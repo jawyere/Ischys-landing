@@ -1,0 +1,110 @@
+.miniChartCard {
+  position: relative;
+}
+
+.miniChartTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.miniChartLabel {
+  color: rgba(245, 255, 248, 0.45);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.miniChartMeta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  padding: 6px 9px;
+  border: 1px solid rgba(156, 255, 184, 0.2);
+  border-radius: 999px;
+  background: rgba(7, 17, 13, 0.72);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
+.miniChartMeta span {
+  color: rgba(245, 255, 248, 0.56);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.miniChartMeta strong {
+  color: var(--green);
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hydrationChart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gridLine {
+  stroke: rgba(245, 255, 248, 0.08);
+  stroke-width: 1;
+}
+
+.activeGuide {
+  stroke: rgba(156, 255, 184, 0.28);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+  transition: x1 180ms ease, x2 180ms ease;
+}
+
+.chartPoint {
+  fill: #07110d;
+  stroke: #8df0b3;
+  stroke-width: 3;
+  transition:
+    r 180ms ease,
+    fill 180ms ease,
+    stroke 180ms ease,
+    filter 180ms ease;
+}
+
+.chartPoint.isActive {
+  fill: #9cffb8;
+  stroke: #d9ffe4;
+  filter: drop-shadow(0 0 10px rgba(156, 255, 184, 0.5));
+}
+
+.chartHitArea {
+  fill: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.chartLabels {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(245, 255, 248, 0.48);
+  font-size: 11px;
+}
+
+@media (max-width: 560px) {
+  .miniChartTopRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .miniChartMeta {
+    min-height: 28px;
+  }
+}

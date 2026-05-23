@@ -11,7 +11,17 @@
 .sectionHeading h2 {
   margin-bottom: 0;
 }
+
 .steps {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --panel-scale: 1;
+  --panel-lift: 0px;
+  --magnetic-x: 0px;
+  --magnetic-y: 0px;
+
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -23,11 +33,19 @@
     rgba(255, 255, 255, 0.035);
   backdrop-filter: blur(18px);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  transform:
+    perspective(900px)
+    translate3d(var(--magnetic-x), calc(var(--panel-lift) + var(--magnetic-y)), 0)
+    rotateX(var(--tilt-y))
+    rotateY(var(--tilt-x))
+    scale(var(--panel-scale));
+  transform-style: preserve-3d;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease,
     background 180ms ease;
+  will-change: transform;
 }
 
 .steps::before {
@@ -35,7 +53,11 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 18%, rgba(156, 255, 184, 0.14), transparent 34%),
+    radial-gradient(
+      circle at var(--pointer-x) var(--pointer-y),
+      rgba(156, 255, 184, 0.18),
+      transparent 34%
+    ),
     linear-gradient(135deg, rgba(156, 255, 184, 0.08), transparent 42%);
   opacity: 0;
   pointer-events: none;
@@ -43,8 +65,13 @@
 }
 
 .steps:hover {
-  transform: translateY(-3px);
+  --panel-lift: -4px;
+  --panel-scale: 1.018;
+
   border-color: rgba(156, 255, 184, 0.34);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.082), rgba(255, 255, 255, 0.042)),
+    rgba(255, 255, 255, 0.04);
   box-shadow:
     0 30px 86px rgba(0, 0, 0, 0.26),
     0 0 44px rgba(156, 255, 184, 0.12);
@@ -59,6 +86,7 @@
   z-index: 1;
   min-height: 214px;
   padding: 26px 24px;
+  transform: translateZ(22px);
   transition:
     background 180ms ease,
     transform 180ms ease;
@@ -112,5 +140,22 @@
   .step + .step {
     border-left: 0;
     border-top: 1px solid rgba(156, 255, 184, 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steps,
+  .steps::before,
+  .step {
+    transition: none;
+  }
+
+  .steps,
+  .steps:hover {
+    transform: none;
+  }
+
+  .step {
+    transform: none;
   }
 }

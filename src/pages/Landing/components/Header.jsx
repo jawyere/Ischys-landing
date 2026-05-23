@@ -21,6 +21,7 @@ function Header() {
           <a href="#how">How it works</a>
           <a href="#app">App</a>
           <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
         </div>
 
         <Button href="#waitlist" variant="primary" className="navButton">
@@ -51,6 +52,10 @@ function Header() {
 
           <a href="#pricing" onClick={closeMenu}>
             Pricing
+          </a>
+
+          <a href="#faq" onClick={closeMenu}>
+            FAQ
           </a>
 
           <a href="#waitlist" onClick={closeMenu} className="mobileMenuCta">

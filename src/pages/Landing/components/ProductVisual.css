@@ -14,7 +14,6 @@
   padding: clamp(24px, 4vw, 52px) clamp(16px, 3vw, 38px);
 }
 
-
 .heroProduct::before {
   content: "";
   position: absolute;
@@ -45,8 +44,6 @@
   transform: translate(-50%, -50%) scale(1.06);
 }
 
-
-/* graph card */
 .graphCard {
   --graph-x: clamp(8px, 1.4vw, 22px);
   --graph-y: clamp(34px, 5vw, 58px);
@@ -130,36 +127,6 @@
   margin-top: 14px;
 }
 
-.hydrationChart {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.gridLine {
-  stroke: rgba(245, 255, 248, 0.08);
-  stroke-width: 1;
-}
-
-.chartPoint {
-  fill: #07110d;
-  stroke: #8df0b3;
-  stroke-width: 3;
-}
-
-.chartPointFinal {
-  stroke: #7cc9ff;
-}
-
-.chartLabels {
-  margin-top: 8px;
-  display: flex;
-  justify-content: space-between;
-  color: rgba(245, 255, 248, 0.48);
-  font-size: 11px;
-}
-
-/* bottle */
 .bottleWrap {
   --bottle-scale: clamp(0.78, 0.72 + 0.18vw, 0.96);
   --bottle-hover-scale: clamp(0.8, 0.74 + 0.18vw, 0.985);
@@ -231,7 +198,6 @@
   box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.08);
 }
 
-/* sensor base */
 .sensorBase {
   position: relative;
   width: 134px;
@@ -309,7 +275,6 @@
   text-transform: uppercase;
 }
 
-/* tablet */
 @media (max-width: 900px) {
   .heroProduct {
     min-height: 430px;
@@ -329,18 +294,18 @@
   }
 
   .graphCard {
-  --graph-x: 18px;
-  --graph-y: 34px;
+    --graph-x: 18px;
+    --graph-y: 34px;
 
-  width: clamp(205px, 48vw, 250px);
-  justify-self: end;
+    width: clamp(205px, 48vw, 250px);
+    justify-self: end;
   }
 
   .bottleWrap {
-  --bottle-scale: 0.72;
-  --bottle-hover-scale: 0.74;
+    --bottle-scale: 0.72;
+    --bottle-hover-scale: 0.74;
 
-  justify-self: start;
+    justify-self: start;
   }
 
   .graphSubtext {
@@ -348,7 +313,6 @@
   }
 }
 
-/* phones */
 @media (max-width: 560px) {
   .heroProduct {
     min-height: 410px;
@@ -357,14 +321,17 @@
   }
 
   .graphCard {
+    --graph-x: 24px;
+    --graph-y: 34px;
+
     width: clamp(190px, 62vw, 220px);
     padding: 14px;
     border-radius: 24px;
-    transform: translate(24px, 34px);
   }
 
   .bottleWrap {
-    transform: scale(0.62);
+    --bottle-scale: 0.62;
+    --bottle-hover-scale: 0.635;
   }
 
   .graphMetric {
@@ -382,23 +349,28 @@
   }
 }
 
-/* tiny phones */
 @media (max-width: 390px) {
   .heroProduct {
     grid-template-columns: minmax(160px, 1fr) 74px;
   }
 
   .graphCard {
-  --graph-x: 24px;
-  --graph-y: 34px;
+    --graph-x: 18px;
+    --graph-y: 34px;
 
-  width: clamp(190px, 62vw, 220px);
-  padding: 14px;
-  border-radius: 24px;
+    width: 190px;
   }
 
   .bottleWrap {
-  --bottle-scale: 0.62;
-  --bottle-hover-scale: 0.635;
+    --bottle-scale: 0.56;
+    --bottle-hover-scale: 0.575;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroProduct::before,
+  .graphCard,
+  .bottleWrap {
+    transition: none;
   }
 }

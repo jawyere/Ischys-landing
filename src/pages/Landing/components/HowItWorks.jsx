@@ -1,3 +1,4 @@
+import MagneticSurface from "../../../components/MagneticSurface/MagneticSurface";
 import Step from "./Step";
 import "./HowItWorks.css";
 
@@ -12,7 +13,7 @@ function HowItWorks() {
           <h2>A simple base. A smarter hydration app.</h2>
         </div>
 
-        <div className="steps">
+        <MagneticSurface className="steps" strength={4}>
           <Step
             title="Attach"
             text="Attach your bottle to the Ischys base. The thin attachment is designed to easily stick to your bottle."
@@ -27,7 +28,7 @@ function HowItWorks() {
             title="Guide"
             text="The app shows your progress, forecasts your end-of-day intake, and reminds you when you are falling behind."
           />
-        </div>
+        </MagneticSurface>
       </div>
 
       <div className="sideLine"></div>
