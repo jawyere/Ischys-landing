@@ -40,16 +40,18 @@
 
 .heroActions {
   display: flex;
-  gap: 8px;
-  flex-wrap: nowrap;
-  margin-top: 8px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  align-items: center;
 }
 
 .heroActions .primaryBtn,
 .heroActions .secondaryBtn {
-  min-height: 38px;
-  padding: 0 14px;
-  font-size: clamp(11px, 0.9vw, 13px);
+  width: auto;
+  min-width: fit-content;
+  min-height: 42px;
+  padding: 0 18px;
   white-space: nowrap;
 }
 

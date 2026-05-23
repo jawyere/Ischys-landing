@@ -1,4 +1,5 @@
 import "./Pricing.css";
+import { Link } from "react-router-dom";
 
 function Pricing() {
   return (
@@ -25,8 +26,8 @@ function Pricing() {
             <h3>Reserve your spot now</h3>
 
             <p>
-              Put down $10 now and receive an additional <strong>$10 off</strong> the initial
-              hardware release, plus early founder status.
+              Put down $10 now and receive an additional <strong>$10 off</strong>{" "}
+              the initial hardware release, plus early founder status.
             </p>
 
             <ul className="perkList">
@@ -48,42 +49,41 @@ function Pricing() {
             <small>Best for early users who want first access.</small>
           </div>
 
-          <div className="priceCard featuredPriceCard">
-            <div className="limitedBadge">Only 50 spots</div>
+          <div className="priceCard featuredPriceCard supportCard">
+            <div className="limitedBadge">Optional support tier</div>
 
-            <p className="tierLabel">Core Founder</p>
+            <p className="tierLabel">Founding Patron</p>
 
-            <p className="price">$400</p>
-
-            <h3>Support the first build</h3>
+            <h3>Help support the first build</h3>
 
             <p>
-              Core Founder is an optional way to give extra support to Ischys as
-              a small business. This is NOT required by any means. It is
-              for people who want to help fund the prototype, production setup,
-              testing, and launch.
+              Founding Patron is for people who want to give extra support to
+              help Ischys get started. It helps fund early prototype development,
+              testing, production setup, and launch costs.
+            </p>
+
+            <p>
+              This is <strong>not required</strong> to receive Founder Access or
+              early pricing. The regular $10 Founder Access option is the best
+              choice if you only want to reserve your spot and get the early
+              supporter discount.
             </p>
 
             <ul className="perkList">
-              <li>Core Founder status</li>
+              <li>Founding Patron status</li>
               <li>Priority first-batch access</li>
               <li>Name listed on founder thank-you page</li>
               <li>Early feedback invite before launch</li>
               <li>Behind-the-scenes prototype updates</li>
             </ul>
 
-            <a
-              href="https://buy.stripe.com/7sYeVfgxjezBc6N5aZ2Fa01"
-              target="_blank"
-              rel="noreferrer"
-              className="primaryBtn wide"
-            >
-              Become a Core Founder
-            </a>
+            <Link to="/founding-patron" className="secondaryBtn wide">
+              Learn More
+            </Link>
 
             <small>
-              Extra support tier. Founder Access is enough if you only want to
-              reserve early pricing.
+              Optional patron support for people who want to help bring Ischys
+              to life.
             </small>
           </div>
         </div>

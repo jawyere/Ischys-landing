@@ -1,0 +1,172 @@
+.fpCard {
+  position: relative;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.065)),
+    rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(22px);
+  overflow: hidden;
+}
+
+.fpCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(156, 255, 184, 0.2), transparent 42%);
+  pointer-events: none;
+}
+
+.fpCardTop,
+.fpPriceBlock,
+.fpCardDescription,
+.fpPerks,
+.fpButton,
+.fpFinePrint {
+  position: relative;
+  z-index: 1;
+}
+
+.fpCardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.fpTierPill {
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(156, 255, 184, 0.15);
+  color: #baffca;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fpLimitedText {
+  margin: 0;
+  color: rgba(245, 255, 248, 0.58);
+  font-size: 0.82rem;
+  text-align: right;
+  max-width: 140px;
+  line-height: 1.35;
+}
+
+.fpPriceBlock {
+  margin-bottom: 1rem;
+}
+
+.fpPatronPrice {
+  display: block;
+  font-size: clamp(3.4rem, 7vw, 5.2rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  color: #f5fff8;
+}
+
+.fpPriceSubtext {
+  display: block;
+  margin-top: 0.6rem;
+  color: rgba(245, 255, 248, 0.66);
+  font-size: 0.95rem;
+}
+
+.fpCardDescription {
+  color: rgba(245, 255, 248, 0.78);
+  line-height: 1.65;
+  margin: 1.2rem 0 1.5rem;
+}
+
+.fpPerks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.6rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.fpPerks li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  color: rgba(245, 255, 248, 0.84);
+  line-height: 1.45;
+}
+
+.fpPerks li span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: rgba(156, 255, 184, 0.16);
+  color: #9cffb8;
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+.fpButton {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #9cffb8, #e7ff8d);
+  color: #07110d;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  box-shadow: 0 18px 40px rgba(156, 255, 184, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.fpButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 50px rgba(156, 255, 184, 0.28);
+  filter: brightness(1.03);
+}
+
+.fpButton:focus-visible {
+  outline: 3px solid rgba(156, 255, 184, 0.75);
+  outline-offset: 4px;
+}
+
+.fpFinePrint {
+  margin: 1rem 0 0;
+  color: rgba(245, 255, 248, 0.52);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .fpCard {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 620px) {
+  .fpCard {
+    border-radius: 28px;
+  }
+
+  .fpCardTop {
+    flex-direction: column;
+  }
+
+  .fpLimitedText {
+    text-align: left;
+    max-width: none;
+  }
+}

@@ -1,0 +1,357 @@
+.heroProduct {
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: minmax(190px, 0.92fr) minmax(120px, 0.58fr);
+  align-items: center;
+  justify-items: center;
+  column-gap: clamp(10px, 2.8vw, 38px);
+  overflow: hidden;
+  border-left: 1px solid var(--border);
+  isolation: isolate;
+  padding: clamp(24px, 4vw, 52px) clamp(16px, 3vw, 38px);
+}
+
+.heroProduct::before {
+  content: "";
+  position: absolute;
+  width: clamp(310px, 38vw, 470px);
+  height: clamp(310px, 38vw, 470px);
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(88, 214, 141, 0.18) 0%,
+      rgba(88, 214, 141, 0.08) 36%,
+      transparent 72%
+    );
+  left: 42%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(10px);
+  z-index: 0;
+}
+
+/* graph card */
+.graphCard {
+  position: relative;
+  z-index: 3;
+  width: clamp(220px, 23vw, 282px);
+  padding: clamp(15px, 1.8vw, 19px);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.045));
+  border: 1px solid rgba(156, 255, 184, 0.14);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  justify-self: end;
+  transform: translate(
+    clamp(8px, 1.4vw, 22px),
+    clamp(34px, 5vw, 58px)
+  );
+}
+
+.graphHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.graphEyebrow {
+  margin: 0 0 4px;
+  color: rgba(245, 255, 248, 0.48);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.graphMetric {
+  margin: 0;
+  color: #f5fff8;
+  font-size: clamp(28px, 3.2vw, 34px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.graphBadge {
+  min-width: 54px;
+  height: 26px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(156, 255, 184, 0.12);
+  border: 1px solid rgba(156, 255, 184, 0.18);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.graphSubtext {
+  margin: 8px 0 0;
+  color: rgba(245, 255, 248, 0.56);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.chartWrap {
+  margin-top: 14px;
+}
+
+.hydrationChart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gridLine {
+  stroke: rgba(245, 255, 248, 0.08);
+  stroke-width: 1;
+}
+
+.chartPoint {
+  fill: #07110d;
+  stroke: #8df0b3;
+  stroke-width: 3;
+}
+
+.chartPointFinal {
+  stroke: #7cc9ff;
+}
+
+.chartLabels {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(245, 255, 248, 0.48);
+  font-size: 11px;
+}
+
+/* bottle */
+.bottleWrap {
+  position: relative;
+  z-index: 2;
+  justify-self: start;
+  transform: scale(clamp(0.78, 0.72 + 0.18vw, 0.96));
+}
+
+.bottleCap {
+  width: 54px;
+  height: 28px;
+  margin: 0 auto;
+  border-radius: 12px 12px 5px 5px;
+  background: linear-gradient(180deg, #b8ffd0 0%, #82e9a8 100%);
+  box-shadow:
+    0 10px 24px rgba(88, 214, 141, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.bottle {
+  position: relative;
+  width: 132px;
+  height: 282px;
+  overflow: hidden;
+  border: 1.5px solid rgba(156, 255, 184, 0.4);
+  border-radius: 40px 40px 28px 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
+    linear-gradient(180deg, rgba(9, 18, 14, 0.75), rgba(10, 20, 15, 0.52));
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.bottle::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 14px;
+  width: 18px;
+  height: 190px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02));
+  pointer-events: none;
+}
+
+.waterFill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 66%;
+  background:
+    linear-gradient(180deg, rgba(145, 255, 219, 0.86), rgba(61, 164, 127, 0.92)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+  border-radius: 24px 24px 22px 22px;
+  box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.08);
+}
+
+/* sensor base */
+.sensorBase {
+  position: relative;
+  width: 134px;
+  height: 28px;
+  margin: -18px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.sensorTopLip {
+  width: 116px;
+  height: 7px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.02)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.sensorBody {
+  position: relative;
+  width: 134px;
+  height: 20px;
+  margin-top: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 999px 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 45%),
+    linear-gradient(180deg, #21382c, #111e17);
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.22);
+}
+
+.sensorBody::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.sensorBody::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: -7px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.sensorLabel {
+  position: relative;
+  z-index: 2;
+  color: rgba(245, 255, 248, 0.76);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* tablet */
+@media (max-width: 900px) {
+  .heroProduct {
+    min-height: 430px;
+    height: auto;
+    align-self: auto;
+    grid-template-columns: minmax(180px, 1fr) minmax(105px, 0.48fr);
+    column-gap: clamp(0px, 2vw, 18px);
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 34px 20px 46px;
+  }
+
+  .heroProduct::before {
+    width: 330px;
+    height: 330px;
+    left: 50%;
+  }
+
+  .graphCard {
+    width: clamp(205px, 48vw, 250px);
+    justify-self: end;
+    transform: translate(18px, 34px);
+  }
+
+  .bottleWrap {
+    justify-self: start;
+    transform: scale(0.72);
+  }
+
+  .graphSubtext {
+    font-size: 11px;
+  }
+}
+
+/* phones */
+@media (max-width: 560px) {
+  .heroProduct {
+    min-height: 410px;
+    grid-template-columns: minmax(170px, 1fr) minmax(82px, 0.38fr);
+    padding: 28px 10px 42px;
+  }
+
+  .graphCard {
+    width: clamp(190px, 62vw, 220px);
+    padding: 14px;
+    border-radius: 24px;
+    transform: translate(24px, 34px);
+  }
+
+  .bottleWrap {
+    transform: scale(0.62);
+  }
+
+  .graphMetric {
+    font-size: 25px;
+  }
+
+  .graphBadge {
+    min-width: 48px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .chartLabels {
+    font-size: 10px;
+  }
+}
+
+/* tiny phones */
+@media (max-width: 390px) {
+  .heroProduct {
+    grid-template-columns: minmax(160px, 1fr) 74px;
+  }
+
+  .graphCard {
+    width: 190px;
+    transform: translate(18px, 34px);
+  }
+
+  .bottleWrap {
+    transform: scale(0.56);
+  }
+}

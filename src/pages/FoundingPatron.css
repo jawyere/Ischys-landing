@@ -1,0 +1,123 @@
+.fpPage {
+  --fp-bg: #07110d;
+  --fp-text: #f5fff8;
+  --fp-muted: rgba(245, 255, 248, 0.72);
+  --fp-accent: #9cffb8;
+
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(88, 214, 141, 0.18), transparent 32rem),
+    radial-gradient(circle at 85% 20%, rgba(83, 135, 255, 0.16), transparent 30rem),
+    linear-gradient(135deg, #07110d 0%, #0d1b14 45%, #08100d 100%);
+  color: var(--fp-text);
+  overflow-x: hidden;
+}
+
+.fpPage h1,
+.fpPage h2,
+.fpPage h3,
+.fpPage p,
+.fpPage ul {
+  margin-top: 0;
+}
+
+.fpPage h1,
+.fpPage h2,
+.fpPage h3 {
+  color: inherit;
+}
+
+.fpPage a {
+  color: inherit;
+}
+
+.fpSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem 1.1rem 4rem;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+}
+
+.fpShell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.fpBackLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(245, 255, 248, 0.72);
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-bottom: 3rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.fpBackLink:hover {
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+
+.fpBackLink:focus-visible {
+  outline: 3px solid rgba(156, 255, 184, 0.75);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+.fpGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.fpGlow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(14px);
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.fpGlowOne {
+  width: 18rem;
+  height: 18rem;
+  background: rgba(0, 255, 72, 0.178);
+  top: 10%;
+  left: -7rem;
+}
+
+.fpGlowTwo {
+  width: 20rem;
+  height: 20rem;
+  background: rgba(83, 135, 255, 0.12);
+  right: -7rem;
+  bottom: 8%;
+}
+
+@media (max-width: 900px) {
+  .fpSection {
+    align-items: flex-start;
+    padding-top: 1.4rem;
+  }
+
+  .fpBackLink {
+    margin-bottom: 2rem;
+  }
+
+  .fpGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .fpSection {
+    padding-inline: 1rem;
+  }
+}
