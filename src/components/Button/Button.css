@@ -1,0 +1,74 @@
+.siteButton {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    filter 180ms ease;
+}
+
+.siteButton--primary {
+  background:
+    linear-gradient(135deg, rgba(178, 255, 197, 0.96), rgba(74, 173, 111, 0.96)),
+    linear-gradient(135deg, #9cffb8, #4aad6f);
+  color: #07110d;
+  border-color: rgba(220, 255, 228, 0.48);
+  box-shadow:
+    0 16px 38px rgba(74, 173, 111, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.14);
+}
+
+.siteButton--primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04) saturate(1.04);
+  box-shadow:
+    0 22px 48px rgba(74, 173, 111, 0.31),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+}
+
+.siteButton--secondary {
+  color: var(--green, #9cffb8);
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(156, 255, 184, 0.35);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.siteButton--secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(156, 255, 184, 0.08);
+  border-color: rgba(156, 255, 184, 0.5);
+}
+
+.siteButton:active {
+  transform: translateY(1px) scale(0.985);
+  filter: brightness(0.98);
+}
+
+.siteButton:focus-visible {
+  outline: 3px solid rgba(156, 255, 184, 0.72);
+  outline-offset: 4px;
+}
+
+.siteButton--wide {
+  width: 100%;
+}

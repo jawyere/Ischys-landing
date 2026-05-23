@@ -1,6 +1,6 @@
 import "./FoundingPatron.css";
-import FoundingPatronHero from "../components/founding-patron/FoundingPatronHero";
-import FoundingPatronCard from "../components/founding-patron/FoundingPatronCard";
+import FoundingPatronHero from "./components/FoundingPatronHero";
+import FoundingPatronCard from "./components/FoundingPatronCard";
 
 function FoundingPatron() {
   return (

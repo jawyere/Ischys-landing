@@ -3,56 +3,156 @@
   min-height: 100%;
   height: 100%;
   align-self: stretch;
-  display: grid;
-  grid-template-columns: minmax(190px, 0.92fr) minmax(120px, 0.58fr);
+  display: flex;
   align-items: center;
-  justify-items: center;
-  column-gap: clamp(10px, 2.8vw, 38px);
+  justify-content: center;
+  gap: clamp(22px, 4vw, 46px);
   overflow: hidden;
   border-left: 1px solid var(--border);
-  isolation: isolate;
-  padding: clamp(24px, 4vw, 52px) clamp(16px, 3vw, 38px);
 }
 
 .heroProduct::before {
   content: "";
   position: absolute;
-  width: clamp(310px, 38vw, 470px);
-  height: clamp(310px, 38vw, 470px);
+  width: clamp(330px, 38vw, 440px);
+  height: clamp(330px, 38vw, 440px);
   border-radius: 999px;
-  background:
-    radial-gradient(
-      circle,
-      rgba(88, 214, 141, 0.18) 0%,
-      rgba(88, 214, 141, 0.08) 36%,
-      transparent 72%
-    );
-  left: 42%;
+  background: rgba(143, 174, 120, 0.16);
+  left: 10%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(10px);
-  z-index: 0;
+  transform: translateY(-50%);
 }
 
+/* bottle */
+.bottleWrap {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  transform: scale(clamp(0.82, 0.85 + 0.1vw, 0.96));
+}
+
+.bottleCap {
+  width: 54px;
+  height: 28px;
+  margin: 0 auto;
+  border-radius: 12px 12px 5px 5px;
+  background: var(--green);
+}
+
+.bottle {
+  position: relative;
+  width: 130px;
+  height: 280px;
+  overflow: hidden;
+  border: 3px solid var(--green);
+  border-radius: 38px 38px 26px 26px;
+  background: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 24px 60px rgba(40, 79, 57, 0.18);
+}
+
+.waterFill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 66%;
+  background: linear-gradient(180deg, #a8ddd1, #4f9a86);
+  border-radius: 24px;
+}
+
+/* attached thin sensor base */
+.sensorBase {
+  position: relative;
+  width: 132px;
+  height: 28px;
+  margin: -20px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+/* thin contact edge that tucks into the bottle bottom */
+.sensorTopLip {
+  width: 116px;
+  height: 7px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 79, 57, 0.42),
+    rgba(40, 79, 57, 0.18)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 -1px 0 rgba(40, 79, 57, 0.18);
+}
+
+/* main puck body: thin, flush, slightly narrower than old version */
+.sensorBody {
+  position: relative;
+  width: 132px;
+  height: 18px;
+  margin-top: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 999px 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), transparent 45%),
+    linear-gradient(180deg, #355c47, #244735);
+  box-shadow:
+    0 8px 16px rgba(40, 79, 57, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.14);
+}
+
+.sensorBody::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.sensorBody::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: -6px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(40, 79, 57, 0.14);
+  filter: blur(7px);
+  z-index: -1;
+}
+
+.sensorLabel {
+  position: relative;
+  z-index: 2;
+  color: rgba(255, 253, 247, 0.88);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 /* graph card */
 .graphCard {
   position: relative;
   z-index: 3;
-  width: clamp(220px, 23vw, 282px);
-  padding: clamp(15px, 1.8vw, 19px);
-  border-radius: 28px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.045));
-  border: 1px solid rgba(156, 255, 184, 0.14);
-  backdrop-filter: blur(18px);
-  box-shadow:
-    0 28px 70px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  justify-self: end;
-  transform: translate(
-    clamp(8px, 1.4vw, 22px),
-    clamp(34px, 5vw, 58px)
-  );
+  flex: 0 1 270px;
+  width: clamp(220px, 24vw, 275px);
+  padding: clamp(15px, 2vw, 18px);
+  border-radius: 26px;
+  background: rgba(255, 253, 247, 0.86);
+  border: 1px solid rgba(40, 79, 57, 0.12);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px rgba(40, 79, 57, 0.18);
+  margin-left: clamp(8px, 1.2vw, 18px);
+  transform: translateY(clamp(28px, 5vw, 52px));
 }
 
 .graphHeader {
@@ -64,7 +164,7 @@
 
 .graphEyebrow {
   margin: 0 0 4px;
-  color: rgba(245, 255, 248, 0.48);
+  color: var(--muted);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -72,7 +172,7 @@
 
 .graphMetric {
   margin: 0;
-  color: #f5fff8;
+  color: var(--green);
   font-size: clamp(28px, 3.2vw, 34px);
   line-height: 1;
   letter-spacing: -0.05em;
@@ -86,8 +186,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgba(156, 255, 184, 0.12);
-  border: 1px solid rgba(156, 255, 184, 0.18);
+  background: rgba(143, 174, 120, 0.16);
   color: var(--green);
   font-size: 11px;
   font-weight: 800;
@@ -95,7 +194,7 @@
 
 .graphSubtext {
   margin: 8px 0 0;
-  color: rgba(245, 255, 248, 0.56);
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.45;
 }
@@ -111,194 +210,53 @@
 }
 
 .gridLine {
-  stroke: rgba(245, 255, 248, 0.08);
+  stroke: rgba(40, 79, 57, 0.12);
   stroke-width: 1;
 }
 
 .chartPoint {
-  fill: #07110d;
-  stroke: #8df0b3;
+  fill: #fffdf7;
+  stroke: #4f9a86;
   stroke-width: 3;
 }
 
 .chartPointFinal {
-  stroke: #7cc9ff;
+  stroke: #284f39;
 }
 
 .chartLabels {
-  margin-top: 8px;
+  margin-top: 6px;
   display: flex;
   justify-content: space-between;
-  color: rgba(245, 255, 248, 0.48);
+  color: var(--muted);
   font-size: 11px;
 }
 
-/* bottle */
-.bottleWrap {
-  position: relative;
-  z-index: 2;
-  justify-self: start;
-  transform: scale(clamp(0.78, 0.72 + 0.18vw, 0.96));
-}
-
-.bottleCap {
-  width: 54px;
-  height: 28px;
-  margin: 0 auto;
-  border-radius: 12px 12px 5px 5px;
-  background: linear-gradient(180deg, #b8ffd0 0%, #82e9a8 100%);
-  box-shadow:
-    0 10px 24px rgba(88, 214, 141, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
-}
-
-.bottle {
-  position: relative;
-  width: 132px;
-  height: 282px;
-  overflow: hidden;
-  border: 1.5px solid rgba(156, 255, 184, 0.4);
-  border-radius: 40px 40px 28px 28px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-    linear-gradient(180deg, rgba(9, 18, 14, 0.75), rgba(10, 20, 15, 0.52));
-  box-shadow:
-    0 28px 70px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-}
-
-.bottle::before {
-  content: "";
-  position: absolute;
-  top: 18px;
-  left: 14px;
-  width: 18px;
-  height: 190px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02));
-  pointer-events: none;
-}
-
-.waterFill {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 66%;
-  background:
-    linear-gradient(180deg, rgba(145, 255, 219, 0.86), rgba(61, 164, 127, 0.92)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
-  border-radius: 24px 24px 22px 22px;
-  box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.08);
-}
-
-/* sensor base */
-.sensorBase {
-  position: relative;
-  width: 134px;
-  height: 28px;
-  margin: -18px auto 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 3;
-}
-
-.sensorTopLip {
-  width: 116px;
-  height: 7px;
-  border-radius: 0 0 999px 999px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.02)
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    0 -1px 0 rgba(0, 0, 0, 0.1);
-}
-
-.sensorBody {
-  position: relative;
-  width: 134px;
-  height: 20px;
-  margin-top: -1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0 0 999px 999px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 45%),
-    linear-gradient(180deg, #21382c, #111e17);
-  box-shadow:
-    0 12px 26px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.22);
-}
-
-.sensorBody::before {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 16px;
-  right: 16px;
-  height: 2px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.sensorBody::after {
-  content: "";
-  position: absolute;
-  left: 22px;
-  right: 22px;
-  bottom: -7px;
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.22);
-  filter: blur(8px);
-  z-index: -1;
-}
-
-.sensorLabel {
-  position: relative;
-  z-index: 2;
-  color: rgba(245, 255, 248, 0.76);
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* tablet */
+/* mobile */
 @media (max-width: 900px) {
   .heroProduct {
     min-height: 430px;
     height: auto;
     align-self: auto;
-    grid-template-columns: minmax(180px, 1fr) minmax(105px, 0.48fr);
-    column-gap: clamp(0px, 2vw, 18px);
+    gap: 4px;
     border-left: 0;
     border-top: 1px solid var(--border);
-    padding: 34px 20px 46px;
   }
 
   .heroProduct::before {
     width: 330px;
     height: 330px;
-    left: 50%;
-  }
-
-  .graphCard {
-    width: clamp(205px, 48vw, 250px);
-    justify-self: end;
-    transform: translate(18px, 34px);
+    left: 8%;
   }
 
   .bottleWrap {
-    justify-self: start;
-    transform: scale(0.72);
+    transform: scale(0.78);
+  }
+
+  .graphCard {
+    width: 220px;
+    flex-basis: 220px;
+    transform: translateY(34px);
   }
 
   .graphSubtext {
@@ -306,23 +264,22 @@
   }
 }
 
-/* phones */
-@media (max-width: 560px) {
+/* very narrow phones */
+@media (max-width: 430px) {
   .heroProduct {
     min-height: 410px;
-    grid-template-columns: minmax(170px, 1fr) minmax(82px, 0.38fr);
-    padding: 28px 10px 42px;
-  }
-
-  .graphCard {
-    width: clamp(190px, 62vw, 220px);
-    padding: 14px;
-    border-radius: 24px;
-    transform: translate(24px, 34px);
+    gap: 0;
   }
 
   .bottleWrap {
-    transform: scale(0.62);
+    transform: scale(0.68);
+  }
+
+  .graphCard {
+    width: 205px;
+    flex-basis: 205px;
+    padding: 14px;
+    transform: translateY(34px);
   }
 
   .graphMetric {
@@ -337,21 +294,5 @@
 
   .chartLabels {
     font-size: 10px;
-  }
-}
-
-/* tiny phones */
-@media (max-width: 390px) {
-  .heroProduct {
-    grid-template-columns: minmax(160px, 1fr) 74px;
-  }
-
-  .graphCard {
-    width: 190px;
-    transform: translate(18px, 34px);
-  }
-
-  .bottleWrap {
-    transform: scale(0.56);
   }
 }

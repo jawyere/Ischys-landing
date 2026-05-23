@@ -1,3 +1,4 @@
+import Button from "../../../components/Button/Button";
 import "./FoundingPatronCard.css";
 
 function FoundingPatronCard() {
@@ -9,7 +10,7 @@ function FoundingPatronCard() {
       </div>
 
       <div className="fpPriceBlock">
-        <span className="fpPatronPrice">$200</span>
+        <span className="fpPatronPrice">$400</span>
         <span className="fpPriceSubtext">one-time optional support</span>
       </div>
 
@@ -41,15 +42,16 @@ function FoundingPatronCard() {
         </li>
       </ul>
 
-      <a
+      <Button
         href="https://buy.stripe.com/7sYeVfgxjezBc6N5aZ2Fa01"
         target="_blank"
         rel="noreferrer"
-        className="fpButton"
-        aria-label="Support Ischys as a Founding Patron for 200 dollars"
+        variant="primary"
+        className="fpButton siteButton--wide"
+        ariaLabel="Support Ischys as a Founding Patron for 400 dollars"
       >
         Support as a Founding Patron
-      </a>
+      </Button>
 
       <p className="fpFinePrint">
         Founding Patron support helps fund early development. It does not

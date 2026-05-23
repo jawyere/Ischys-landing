@@ -24,25 +24,23 @@ function ProductVisual() {
           >
             <defs>
               <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#5ea892" stopOpacity="0.32" />
-                <stop offset="100%" stopColor="#5ea892" stopOpacity="0.03" />
+                <stop offset="0%" stopColor="#9cffb8" stopOpacity="0.22" />
+                <stop offset="100%" stopColor="#9cffb8" stopOpacity="0.015" />
               </linearGradient>
 
               <linearGradient id="lineStroke" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#8fae78" />
-                <stop offset="100%" stopColor="#284f39" />
+                <stop offset="0%" stopColor="#7fe6a5" />
+                <stop offset="100%" stopColor="#7cc9ff" />
               </linearGradient>
             </defs>
 
-            {/* grid lines */}
             <line x1="22" y1="22" x2="238" y2="22" className="gridLine" />
             <line x1="22" y1="58" x2="238" y2="58" className="gridLine" />
             <line x1="22" y1="94" x2="238" y2="94" className="gridLine" />
             <line x1="22" y1="130" x2="238" y2="130" className="gridLine" />
 
-            {/* area */}
             <path
-            d="
+              d="
                 M 22 122
                 L 68 46
                 L 114 92
@@ -52,28 +50,26 @@ function ProductVisual() {
                 L 238 130
                 L 22 130
                 Z
-            "
-            fill="url(#areaFill)"
+              "
+              fill="url(#areaFill)"
             />
 
-            {/* line */}
             <path
-            d="
+              d="
                 M 22 122
                 L 68 46
                 L 114 92
                 L 160 58
                 L 208 70
                 L 238 28
-            "
-            fill="none"
-            stroke="url(#lineStroke)"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+              "
+              fill="none"
+              stroke="url(#lineStroke)"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
 
-            {/* points */}
             <circle cx="68" cy="46" r="4" className="chartPoint" />
             <circle cx="114" cy="92" r="4" className="chartPoint" />
             <circle cx="160" cy="58" r="4" className="chartPoint" />

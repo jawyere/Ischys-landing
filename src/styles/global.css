@@ -1,12 +1,12 @@
 :root {
-  --bg: #f7f4ea;
-  --card: #fffaf0;
-  --green: #284f39;
-  --green-light: #8fae78;
-  --text: #243428;
-  --muted: #6f7b6e;
-  --border: rgba(40, 79, 57, 0.22);
-  --cream: #fffdf7;
+  --bg: #07110d;
+  --card: rgba(255, 255, 255, 0.065);
+  --green: #9cffb8;
+  --green-light: #58d68d;
+  --text: #f5fff8;
+  --muted: rgba(245, 255, 248, 0.68);
+  --border: rgba(156, 255, 184, 0.15);
+  --cream: #07110d;
 }
 
 * {
@@ -23,6 +23,13 @@ body {
     "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 a {

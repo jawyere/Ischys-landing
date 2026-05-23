@@ -27,7 +27,7 @@ function FoundingPatronHero() {
 
       <div className="fpStats" aria-label="Founding Patron highlights">
         <div>
-          <strong>$200</strong>
+          <strong>$400</strong>
           <span>Optional support</span>
         </div>
 

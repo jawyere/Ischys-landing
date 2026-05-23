@@ -1,0 +1,63 @@
+.appGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  padding: 74px 7vw;
+  border-bottom: 1px solid var(--border);
+}
+
+.appTitle {
+  max-width: none;
+  margin-bottom: 16px;
+}
+
+.appTitleLine {
+  display: block;
+  white-space: nowrap;
+  font-size: 42px;
+}
+
+
+.appGrid p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.featurePanel {
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.038));
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+}
+
+.featureRow {
+  display: grid;
+  gap: 6px;
+  padding: 24px;
+}
+
+.featureRow + .featureRow {
+  border-top: 1px solid var(--border);
+}
+
+.featureRow strong {
+  color: var(--green);
+  font-size: 18px;
+}
+
+.featureRow span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .appGrid {
+    grid-template-columns: 1fr;
+    padding: 60px 24px;
+  }
+}

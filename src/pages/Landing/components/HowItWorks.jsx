@@ -14,19 +14,16 @@ function HowItWorks() {
 
         <div className="steps">
           <Step
-            number="01"
             title="Attach"
             text="Attach your bottle to the Ischys base. The thin attachment is designed to easily stick to your bottle."
           />
 
           <Step
-            number="02"
             title="Measure"
             text="The base approximates intake by tracking bottle weight changes throughout the day."
           />
 
           <Step
-            number="03"
             title="Guide"
             text="The app shows your progress, forecasts your end-of-day intake, and reminds you when you are falling behind."
           />
